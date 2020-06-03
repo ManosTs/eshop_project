@@ -192,7 +192,7 @@ public class EShop {
 
 
     //Methods for Buyers
-    public void createBuyer(String name, String mail, int bonus) {
+    public Buyer createBuyer(String name, String mail, int bonus) {
 
         Buyer buyer = new Buyer();
 
@@ -202,6 +202,8 @@ public class EShop {
 
         //add buyer in the list
         addBuyer(buyer);
+
+        return buyer;
 
     }
 

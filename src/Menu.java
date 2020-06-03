@@ -45,7 +45,7 @@ public class Menu {
 
                 if (option == 'y' || option == 'Y') {
                     logout(eshop);
-                }else if(option == 'n' || option == 'N'){
+                } else if (option == 'n' || option == 'N') {
                     menuForUser(eshop);
                 }
             }
@@ -92,7 +92,7 @@ public class Menu {
                 if (option == 'y' || option == 'Y') {
                     logout(eshop);
 
-                }else if(option == 'n' || option == 'N'){
+                } else if (option == 'n' || option == 'N') {
                     menuForOwner(eshop);
                 }
             }
@@ -144,17 +144,15 @@ public class Menu {
                     }
                 }
             }
-        }catch (NullPointerException nullEx){
+        } catch (NullPointerException nullEx) {
             nullEx.printStackTrace();
             nullEx.getMessage();
         }
     }
-    Buyer userExists = null;
+
 
     public void logout(EShop eshop) {
         Scanner sc = new Scanner(System.in);
-
-        eshop.tmpBuyer = null;
 
         System.out.println("You have logged out!");
 
@@ -162,7 +160,8 @@ public class Menu {
         char choice = sc.next().charAt(0);
 
         if (choice == 'Y' || choice == 'y') {
-            cart.clearCart();
+//            cart.clearCart();
+            eshop.tmpBuyer = null;
             identification(eshop);
         } else if (choice == 'n' || choice == 'N') {
             System.out.println("Exit...");
@@ -186,6 +185,8 @@ public class Menu {
         String name;
         String mail;
 
+        Buyer userExists = null;
+
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("----Please sign-up----");
@@ -205,7 +206,8 @@ public class Menu {
             if (userExists != null) {
                 System.out.println("Username or e-mail already exists!");
             } else {
-                eshop.createBuyer(name, mail, 0);
+                eshop.tmpBuyer = eshop.createBuyer(name, mail, 0);
+
                 System.out.println("You have successfully registered!");
                 menuForUser(eshop);
             }
