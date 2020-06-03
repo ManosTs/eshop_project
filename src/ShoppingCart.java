@@ -57,7 +57,7 @@ public class ShoppingCart {
     }
 
     public static double calculateNet(Item item) {
-        double sum = 0;
+        double sum = 0.0;
 
         sum = item.getPrice() * item.getQuantity();
 

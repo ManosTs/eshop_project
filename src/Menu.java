@@ -217,10 +217,6 @@ public class Menu {
 
     }
 
-    public List<Item> getItemList(List<Item> itemList) {
-        return itemList;
-    }
-
     public void buyAgain(EShop eshop) {
         char choice;
 
