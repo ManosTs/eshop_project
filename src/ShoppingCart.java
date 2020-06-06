@@ -2,8 +2,6 @@ import java.util.*;
 
 public class ShoppingCart {
 
-    private Buyer buyer = new Buyer();
-
     private static final Map<Integer, Item> itemOrdered = new HashMap<Integer, Item>();
 
     ShoppingCart() {
@@ -66,7 +64,7 @@ public class ShoppingCart {
     }
 
     public static double SumOfCalculation(Item item){
-        double sum = 0;
+        double sum = 0.0;
         sum = caclulateCourierCost(item) + item.getPrice() * item.getQuantity();
         return sum;
     }
@@ -98,8 +96,9 @@ public class ShoppingCart {
                 itemOrdered.get(c).setQuantity(quantity);
                 System.out.println("The quantity has been changed to:"+quantity);
             } else {
-                System.out.println("Item by that id does not exist!");
+                System.out.println("Item, by that id, does not exist!");
             }
     }
+
 }
 

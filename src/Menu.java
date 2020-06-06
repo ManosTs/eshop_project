@@ -160,7 +160,7 @@ public class Menu {
         char choice = sc.next().charAt(0);
 
         if (choice == 'Y' || choice == 'y') {
-//            cart.clearCart();
+            cart.clearCart();
             eshop.tmpBuyer = null;
             identification(eshop);
         } else if (choice == 'n' || choice == 'N') {
