@@ -13,48 +13,57 @@ public class Menu {
         System.out.println("5.Exit");
         System.out.println("----------------");
 
-        int choice;
+        int choice = 0;
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Enter your choice(1,2,...):");
 
-        choice = keyboard.nextInt();
+        do {
+            try {
 
-        switch (choice) {
-            case 1 -> {
-                eshop.showCategories();
-                eshop.showProductsInCategories(eshop);
-                buyAgain(eshop);
-            }
-            case 2 -> {
-                ShoppingCart.showCart();
-                optionForCart(eshop);
-                menuForUser(eshop);
-            }
-            case 3 -> {
-                cart.checkout(eshop);
-                cart.clearCart();
-                menuForUser(eshop);
-            }
-            case 4 -> {
-                System.out.print("Would you like to sign out(y/n):");
-                char option;
+                System.out.print("Enter your choice(1,2,...):");
 
-                option = keyboard.next().charAt(0);
+                choice = keyboard.nextInt();
 
-                if (option == 'y' || option == 'Y') {
-                    logout(eshop);
-                } else if (option == 'n' || option == 'N') {
-                    menuForUser(eshop);
+                switch (choice) {
+                    case 1 -> {
+                        eshop.showCategories();
+                        eshop.showProductsInCategories(eshop);
+                        buyAgain(eshop);
+                    }
+                    case 2 -> {
+                        ShoppingCart.showCart();
+                        optionForCart(eshop);
+                        menuForUser(eshop);
+                    }
+                    case 3 -> {
+                        cart.checkout(eshop);
+                        cart.clearCart();
+                        menuForUser(eshop);
+                    }
+                    case 4 -> {
+                        System.out.print("Would you like to sign out(y/n):");
+                        char option;
+
+                        option = keyboard.next().charAt(0);
+
+                        if (option == 'y' || option == 'Y') {
+                            logout(eshop);
+                        } else if (option == 'n' || option == 'N') {
+                            menuForUser(eshop);
+                        }
+                    }
+                    case 5 -> {
+                        System.out.println("Exit...");
+                        System.exit(0);
+                    }
+                    default -> System.out.println("Error occurred!\n");
                 }
+            } catch (InputMismatchException ex) {
+                System.out.println("Wrong character in input box!");
             }
-            case 5 -> {
-                System.out.println("Exit...");
-                System.exit(0);
-            }
-            default -> System.out.println("Error occurred!");
-        }
+            keyboard.nextLine();
+        } while (choice < 1 || choice > 4);
     }
 
     public void menuForOwner(EShop eshop) {
@@ -65,44 +74,53 @@ public class Menu {
         System.out.println("4.Exit");
         System.out.println("----------------");
 
-        int choice;
+        int choice = 0;
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Enter your choice(1,2,...):");
+        do {
+            try {
 
-        choice = keyboard.nextInt();
 
-        switch (choice) {
-            case 1 -> {
-                eshop.showCategories();
-                eshop.showProductsInCategoriesForOwner(eshop);
-            }
-            case 2 -> {
-                eshop.checkStatus(eshop);
-                menuForOwner(eshop);
-            }
+                System.out.print("Enter your choice(1,2,...):");
 
-            case 3 -> {
-                System.out.print("Would you like to sign out(y/n):");
-                char option;
+                choice = keyboard.nextInt();
 
-                option = keyboard.next().charAt(0);
+                switch (choice) {
+                    case 1 -> {
+                        eshop.showCategories();
+                        eshop.showProductsInCategoriesForOwner(eshop);
+                    }
+                    case 2 -> {
+                        eshop.checkStatus(eshop);
+                        menuForOwner(eshop);
+                    }
 
-                if (option == 'y' || option == 'Y') {
-                    logout(eshop);
+                    case 3 -> {
+                        System.out.print("Would you like to sign out(y/n):");
+                        char option;
 
-                } else if (option == 'n' || option == 'N') {
-                    menuForOwner(eshop);
+                        option = keyboard.next().charAt(0);
+
+                        if (option == 'y' || option == 'Y') {
+                            logout(eshop);
+
+                        } else if (option == 'n' || option == 'N') {
+                            menuForOwner(eshop);
+                        }
+                    }
+                    case 4 -> {
+                        System.out.println("Exit...");
+                        System.exit(0);
+                    }
+                    default -> System.out.println("Error occurred!");
                 }
+            } catch (InputMismatchException ex) {
+                System.out.println("Wrong character in input box!");
+                ex.printStackTrace();
             }
-            case 4 -> {
-                System.out.println("Exit...");
-                System.exit(0);
-            }
-            default -> System.out.println("Error occurred!");
-        }
-
+            keyboard.nextLine();
+        } while (choice < 1 || choice > 4);
     }
 
     public void identification(EShop eshop) {
@@ -173,12 +191,14 @@ public class Menu {
         Scanner keyboard = new Scanner(System.in);
         int pin;
 
-        System.out.print("Pin:");
-        pin = keyboard.nextInt();
+        do {
+            System.out.print("Pin:");
+            pin = keyboard.nextInt();
 
-        if (pin == owner.getPin()) {
-            System.out.println("You have logged in as owner");
-        }
+            if (pin == owner.getPin()) {
+                System.out.println("You have logged in as owner");
+            }
+        }while(pin != owner.getPin());
     }
 
     public void Register(List<Buyer> listBuyer, EShop eshop) {
@@ -242,7 +262,7 @@ public class Menu {
 
     public void optionForCart(EShop eshop) {
         int getChoiceById;
-        int option;
+        int option = 0;
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -254,41 +274,47 @@ public class Menu {
         System.out.println("5.Back to menu");
         System.out.println("----------------");
 
-        System.out.print("Insert your option(1,2,...):");
-        option = keyboard.nextInt();
+        do {
+            try {
+                System.out.print("Insert your option(1,2,...):");
+                option = keyboard.nextInt();
 
-        switch (option) {
-            case 1 -> {
-                System.out.print("Enter the id:");
-                getChoiceById = keyboard.nextInt();
-                cart.getKeyChecked(getChoiceById);
-                menuForUser(eshop);
+                switch (option) {
+                    case 1 -> {
+                        System.out.print("Enter the id:");
+                        getChoiceById = keyboard.nextInt();
+                        cart.getKeyChecked(getChoiceById);
+                        menuForUser(eshop);
+                    }
+                    case 2 -> {
+                        System.out.print("Enter the id of product:");
+                        getChoiceById = keyboard.nextInt();
+
+                        System.out.print("Enter new Quantity:");
+                        int quantity = keyboard.nextInt();
+                        cart.ChangeQuantity(quantity, getChoiceById);
+                        menuForUser(eshop);
+                    }
+                    case 3 -> {
+                        cart.clearCart();
+                        menuForUser(eshop);
+                    }
+
+                    case 4 -> {
+                        cart.checkout(eshop);
+                        cart.clearCart();
+                        menuForUser(eshop);
+                    }
+
+                    case 5 -> menuForUser(eshop);
+
+                    default -> System.out.println("Error occurred!");
+                }
+                ShoppingCart.showCart();
+            }catch (InputMismatchException ex){
+                System.out.println("Wrong character in input box!");
             }
-            case 2 -> {
-                System.out.print("Enter the id of product:");
-                getChoiceById = keyboard.nextInt();
-
-                System.out.print("Enter new Quantity:");
-                int quantity = keyboard.nextInt();
-                cart.ChangeQuantity(quantity, getChoiceById);
-                menuForUser(eshop);
-            }
-            case 3 -> {
-                cart.clearCart();
-                menuForUser(eshop);
-            }
-
-            case 4 -> {
-                cart.checkout(eshop);
-                cart.clearCart();
-                menuForUser(eshop);
-            }
-
-            case 5 -> menuForUser(eshop);
-
-            default -> System.out.println("Error occurred!");
-        }
-        ShoppingCart.showCart();
+        }while (option < 1 || option > 5);
     }
 }
 
