@@ -126,7 +126,7 @@ public class Menu {
     public void identification(EShop eshop) {
 
         try {
-
+            eshop.tmpBuyer = null;
             Scanner keyboard = new Scanner(System.in);
             String mail;
 
@@ -141,7 +141,6 @@ public class Menu {
 
                 for (Buyer b : eshop.getBuyers()) {
                     if ((mail.equals(b.getMail()))) {
-                        b.isBuyer = true;
                         eshop.tmpBuyer = b;
                         break;
                     }
@@ -157,7 +156,7 @@ public class Menu {
                     char option = keyboard.next().charAt(0);
                     switch (option) {
                         case 'Y', 'y' -> Register(eshop.getBuyers(), eshop);
-                        case 'n', 'N' -> System.exit(1);
+                        case 'n', 'N' -> System.exit(0);
                         default -> System.out.println("Error occurred");
                     }
                 }

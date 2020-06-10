@@ -469,9 +469,6 @@ public class EShop {
                 int quantity = keyboard.nextInt();
                 updateItemStock(pen, quantity);
                 break;
-            }else
-            {
-                System.out.println("Wrong id, try again");
             }
         }
         m.menuForOwner(eshop);
@@ -490,9 +487,6 @@ public class EShop {
                 System.out.print("Give new quantity:");
                 int quantity = keyboard.nextInt();
                 updateItemStock(pencil, quantity);
-            }else
-            {
-                System.out.println("Wrong id, try again");
             }
         }
         m.menuForOwner(eshop);
@@ -511,9 +505,6 @@ public class EShop {
                 System.out.print("Give new quantity:");
                 int quantity = keyboard.nextInt();
                 updateItemStock(notebook, quantity);
-            }else
-            {
-                System.out.println("Wrong id, try again");
             }
         }
         m.menuForOwner(eshop);
@@ -531,9 +522,6 @@ public class EShop {
                 System.out.print("Give new quantity:");
                 int quantity = keyboard.nextInt();
                 updateItemStock(paper, quantity);
-            }else
-            {
-                System.out.println("Wrong id, try again");
             }
         }
         m.menuForOwner(eshop);

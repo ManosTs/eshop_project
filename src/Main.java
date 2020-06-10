@@ -10,7 +10,7 @@ public class Main {
 
         //create buyers
         eshop.createBuyer("James Dingo", "james@gmail.com", 100);
-        eshop.createBuyer("Jonh Via", "john@gmail.com", 200);
+        eshop.createBuyer("John Via", "john@gmail.com", 200);
 
         //create owner of shop
         eshop.createOwner("Tisa Jameson", "tisa@gmail.com",4562);
