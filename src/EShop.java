@@ -335,7 +335,7 @@ public class EShop {
                 System.out.print("Quantity:");
                 int quantity = keyboard.nextInt();
                 item.setQuantity(quantity);
-                checkForStock(item, quantity, eshop);
+                checkForStock(item, quantity);
                 Buyer.placeOrder(item);
                 System.out.println("You have purchased the current item!");
                 //updating stock instantly
@@ -355,12 +355,15 @@ public class EShop {
 
     }
 
-    public void checkForStock(Item item, int quantity, EShop eshop) {
+    public void checkForStock(Item item, int quantity) {
+        Scanner keyboard = new Scanner(System.in);
         if (quantity > item.getStock()) {
-            System.out.println("Your quantity is over than our stock!,please try again!");
             do {
-                itemToBuy(item, eshop);
-            } while (quantity <= item.getStock());
+                System.out.println("Your quantity is over than our stock!,please try again!");
+                System.out.print("Quantity:");
+                quantity = keyboard.nextInt();
+                item.setQuantity(quantity);
+            } while (quantity > item.getStock());
         }
     }
 
