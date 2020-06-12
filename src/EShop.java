@@ -232,14 +232,19 @@ public class EShop {
         int id;
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Insert the id to choose:");
-        id = keyboard.nextInt();
+        try {
 
-        for (Pen pen : getPenList()) {
-            if (id == pen.getId()) {
-                showProduct(pen);
-                itemToBuy(pen, eshop);
+            System.out.print("Insert the id to choose:");
+            id = keyboard.nextInt();
+
+            for (Pen pen : getPenList()) {
+                if (id == pen.getId()) {
+                    showProduct(pen);
+                    itemToBuy(pen, eshop);
+                }
             }
+        }catch (InputMismatchException ex){
+            System.out.println("Wrong character!");
         }
     }
 
@@ -256,17 +261,20 @@ public class EShop {
         int id;
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Insert the id:");
-        id = keyboard.nextInt();
+        try {
+            System.out.print("Insert the id:");
+            id = keyboard.nextInt();
 
-        for (Pencil pencil : getPencilList()) {
-            if (id == pencil.getId()) {
-                showProduct(pencil);
-                itemToBuy(pencil, eshop);
+            for (Pencil pencil : getPencilList()) {
+                if (id == pencil.getId()) {
+                    showProduct(pencil);
+                    itemToBuy(pencil, eshop);
+                }
             }
+        }catch (InputMismatchException ex){
+            System.out.println("Wrong character!");
         }
     }
-
     //Methods for notebook Items
     public void addNotebookItem(Notebook notebook) {
         notebookList.add(notebook);
@@ -280,15 +288,19 @@ public class EShop {
         int id;
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Insert the id:");
-        id = keyboard.nextInt();
+        try {
+            System.out.print("Insert the id:");
+            id = keyboard.nextInt();
 
 
-        for (Notebook notebook : getNotebookList()) {
-            if (id == notebook.getId()) {
-                showProduct(notebook);
-                itemToBuy(notebook, eshop);
+            for (Notebook notebook : getNotebookList()) {
+                if (id == notebook.getId()) {
+                    showProduct(notebook);
+                    itemToBuy(notebook, eshop);
+                }
             }
+        }catch (InputMismatchException ex){
+            System.out.println("Wrong character!");
         }
     }
 
@@ -309,15 +321,19 @@ public class EShop {
         int id;
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Insert the id:");
-        id = keyboard.nextInt();
+        try {
+            System.out.print("Insert the id:");
+            id = keyboard.nextInt();
 
 
-        for (Paper paper : getPaperList()) {
-            if (id == paper.getId()) {
-                showProduct(paper);
-                itemToBuy(paper, eshop);
+            for (Paper paper : getPaperList()) {
+                if (id == paper.getId()) {
+                    showProduct(paper);
+                    itemToBuy(paper, eshop);
+                }
             }
+        }catch (InputMismatchException ex){
+            System.out.println("Wrong character!");
         }
     }
 
